@@ -11,6 +11,8 @@ export const layout = css`
     & > header {
         display: flex;
         align-items: center;
+        gap: 5px;
+        align-items: center;
         justify-content: center;
         height: 200px;
         & > h1 {
@@ -18,10 +20,17 @@ export const layout = css`
             color: transparent;
             -webkit-text-fill-color: transparent;
             
-            background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);;
+            background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);
             background-clip: text;
             -webkit-background-clip: text;
             cursor: default;
+        }
+
+        & svg:nth-of-type(1) {
+            color: rgba(115, 10, 36, 1);
+        }
+        & svg:nth-last-of-type(1) {
+            color: rgba(131, 166, 109, 1);
         }
     }
 

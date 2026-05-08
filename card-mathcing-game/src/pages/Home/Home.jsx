@@ -21,7 +21,7 @@ function Home() {
                 });
             return;
         }
-        navigate("/game");
+        navigate(`/game/${inputValue}`);
 
     }
 
@@ -29,7 +29,7 @@ function Home() {
     return <>
         <div css={s.layout}>
             <header>
-                <h1><GiCardRandom/>CARD MATHING GAME<GiCardRandom/></h1>
+                <h1><GiCardRandom css={s.svg}/>CARD MATHING GAME<GiCardRandom/></h1>
             </header>
             <main>
                 <div css={s.username}>
