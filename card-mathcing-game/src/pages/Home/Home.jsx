@@ -11,6 +11,7 @@ function Home() {
     const handleInputOnChange = (e) => {
         setInputValue(e.target.value);
     }
+    
     const handleStartOnClick = (e) => {
         if (!inputValue.trim()) {//유효성 검사 추가
             setInputValue("");
@@ -21,6 +22,22 @@ function Home() {
                 });
             return;
         }
+        fetch("http://localhost:8080/api/users", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: inputValue,
+            })
+
+        }).then(response => {
+            response.json().then(
+                json => console.log(json)
+            )
+        });
+
+
         navigate(`/game/${inputValue}`);
 
     }

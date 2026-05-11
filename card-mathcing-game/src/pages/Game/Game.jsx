@@ -10,7 +10,7 @@ function Game() {
     const [started, setStarted] = useState(false);
     const [timer, setTimer] = useState(0);
 
-    const msStr = Math.floor(timer / 100).toString();
+    const msStr = timer.toString();
     const sce = msStr.substring(0, msStr.length - 3 ) || 0;
     const ms = msStr.substring(msStr.length - 3);
     const timeIntervalRef = useRef(null);
@@ -40,7 +40,8 @@ function Game() {
     const answerCards = cards.filter(card => !card.isAnswer);
     useEffect(() => {
         const openCards = cards.filter(card => card.isOpen && !card.isAnswer);
-        if(answerCards === null) {
+        const answerCards = cards.filter(card => card.isAnswer);
+        if(answerCards.length === 12) {
             setStarted(false);
         }
 
@@ -97,7 +98,7 @@ function Game() {
             
             for ( let i =0; i < (randomNums.length); i++) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [randomNums[i], randomNums[j] ]= [randomNums[j], randomNums[i] ];
+                [randomNums[i], randomNums[j] ] = [randomNums[j], randomNums[i] ];
             }
 
             setCards(randomNums.map((num, index) => ({
@@ -117,7 +118,7 @@ function Game() {
             const nowTime = now.getTime();
             timeIntervalRef.current = setInterval(() => {
                 setTimer(new Date().getTime() - nowTime);
-            }, 100);//내가 정해둔 시간동안 계속 실행되는것
+            }, 10);//내가 정해둔 시간동안 계속 실행되는것
         }else if(!started && !!timer) {
             clearInterval(timeIntervalRef.current);
         }
