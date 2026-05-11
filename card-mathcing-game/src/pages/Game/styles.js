@@ -1,47 +1,46 @@
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
+import { TbKeyframes } from "react-icons/tb";
 
 export const layout = css`
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px;
     width: 100%;
     height: 100%;
+
+
     & > header {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-
+        justify-content: start;
+        align-items: start;
         & > h1 {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 5px;
             margin: 0 0 10px;
-            height: 200px;
-        
-            font-size: 50px;
+            font-size: 30px;
             color: transparent;
             -webkit-text-fill-color: transparent;
-            
-             background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);
+            background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);    
             background-clip: text;
             -webkit-background-clip: text;
             cursor: default;
-        }
 
             & svg:nth-of-type(1) {
-                color: rgba(115, 10, 36, 1);
+                color: #882431;
             }
             & svg:nth-last-of-type(1) {
-                color: rgba(131, 166, 109, 1);
+                color: #6ca381;
             }
+        }
 
-            & > h3 {
-                margin: 0;
-                color: #c5c5c5;
-                cursor: default;
-            }
-        
+        & > h3 {
+            margin: 0;
+            color: #c5c5c5;
+            cursor: default;
+        }
     }
 
     & > main {
@@ -55,5 +54,54 @@ export const layout = css`
         width: 100%;
         height: 100%;
     }
+`;
 
+
+export const centerContainer = css`
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+      align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    & > h1 {
+        margin: 0;
+        font-size: 70px;
+        color: #c5c5c5;
+
+    }
+
+    @keyframes startButton {
+        0% {
+                transform: scale(100%);
+        }
+        100% {
+                transform: scale(110%);
+        }
+    }
+    &>button {
+        border: none;
+        font-size: 50px;
+        font-family: 600;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);    
+        background-clip: text;
+        -webkit-background-clip: text;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-shadow: 0 0 10px #ffffff33;
+        animation-name: startButton;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate ;
+        
+        &:hover {
+            animation-iteration-count: 0;
+
+
+        }
+    }
 `;
