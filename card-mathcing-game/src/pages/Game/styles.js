@@ -8,16 +8,15 @@ export const layout = css`
     & > header {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
 
         & > h1 {
-             display: flex;
-            align-items: center;
-            gap: 5px;
-            margin: 0 0 10px;
+            display: flex;
             align-items: center;
             justify-content: center;
+            gap: 5px;
+            margin: 0 0 10px;
             height: 200px;
         
             font-size: 50px;
