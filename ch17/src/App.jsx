@@ -1,11 +1,30 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router'
+import Home from './pages/Home/Home'
+import AuthRoutes from './routes/AuthRoutes'
 
 function App() {
-	const [count, setCount] = useState(0)
 
 	return (
 		<>
+			<Routes>
+				<Route path='/' element={<Home />}/>
+				<Route path='/auth/*' element={<AuthRoutes />}/>
+				<Route path='/user/*' element={(
+                    <Routes>
+                        <Route path='/me' element={<>프로필</>}/>
+                        <Route path='/password' element={<>비밀번호변경</>}/>
+						<Route path="*" element={<>404</>} />
+                    </Routes>
+                    
+            )}/>
+				<Route path='/product'>
+					<Route  path='about' element={<>상품소개</>} />
+					<Route path='resource' element={<>상품자료</>} />
+				</Route>
+				<Route path="*" element={<>404</>} />
 
+			</Routes>
 		</>
 	)
 }
