@@ -6,7 +6,7 @@ function Layout({children}) {
     return (
         <>
             <div css={s.layout}>
-                <div css={s.container}>
+                <div css={s.container()}>
                     {children}
                 </div>
             </div>

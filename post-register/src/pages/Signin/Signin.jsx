@@ -2,11 +2,11 @@ import { MdEmail } from "react-icons/md";
 import PasswordInput from "../../components/PasswordInput/PasswordInput";
 import TextInput from "../../components/TextInput/TextInput";
 import * as s from "./styles"
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 
 function Signin() {
-
+    const navigate = useNavigate();
 
     const [inputValues, setInputValues]  = useState({
         email: "test1234@gmail.com",
@@ -46,6 +46,9 @@ function Signin() {
 
             const response = await requestSignin(inputValues.email, inputValues.password);
             localStorage.setItem("accessToken", response.data.accessToken);
+            navigate("/", {
+                replace: true,
+            })
             
         }catch (error){
             alert(error.data);
