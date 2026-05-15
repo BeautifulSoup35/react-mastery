@@ -4,6 +4,8 @@ import AuthRoutes from "./AuthRoutes";
 import useAuthentication from "../hooks/queries/useAuthentication";
 import { useQueries, useQueryClient } from "@tanstack/react-query";
 import { use, useEffect } from "react";
+import PostList from "../pages/PostList/PostList";
+import PostRegister from "../pages/PostRegister/PostRegister";
 
 function RootRoutes() {
     const {pathname} =useLocation();
@@ -35,7 +37,8 @@ function RootRoutes() {
     return (
         // {(authenticationQuery.isLoading) ? <h1>로딩중</h1> : 
         <Routes>
-            <Route path="/" element={<></>} />
+            <Route path="/" element={<PostList />} />
+            <Route path="/write/" element={<PostRegister />} />
             <Route path="/auth/*" element={<AuthRoutes />} />
             <Route path="*" element={<>페이지를 찾을 수 없습니다.</>} />
         </Routes>

@@ -14,7 +14,7 @@ export const layout = (isOpen) => css`
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transform:${isOpen ? " rotateY(180deg)" : "rotateY(0deg)"};
+    
     transition: all  0.3s ease-in-out;
     box-shadow: 0 0 10px #ffffff88;
     /* overflow: hidden; */
