@@ -7,6 +7,8 @@ import { use, useEffect } from "react";
 import PostList from "../pages/PostList/PostList";
 import PostRegister from "../pages/PostRegister/PostRegister";
 import Menus from "../pages/Menus/Menus";
+import Restaurants from "../pages/Restaurants/Restaurants";
+import Customers from "../pages/Customers/Customers";
 
 function RootRoutes() {
     const {pathname} =useLocation();
@@ -40,6 +42,8 @@ function RootRoutes() {
         <Routes>
             <Route path="/" element={<PostList />} />
             <Route path="/auth/menus/" element={<Menus />} />
+            <Route path="/auth/restaurants/" element={<Restaurants />} />
+            <Route path="/auth/customers/" element={<Customers />} />
             <Route path="/write/" element={<PostRegister />} />
             <Route path="/auth/*" element={<AuthRoutes />} />
             <Route path="*" element={<>페이지를 찾을 수 없습니다.</>} />
